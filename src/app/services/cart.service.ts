@@ -15,5 +15,8 @@ export class CartService {
     this.cartProduct.push(this.productService.getSomeProduct(id));
     this.total += this.productService.getSomeProduct(id).price;
   }
-  
+
+  getCart() {
+    return this.cartProduct;
+  }
 }

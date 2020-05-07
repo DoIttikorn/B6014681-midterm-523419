@@ -21,7 +21,11 @@
         <td>{{ item.quantity }}</td>
         <td>{{ item.price }}</td>
         <td>
-          <a class="btn btn-outline-primary" role="button">
+          <a
+            class="btn btn-outline-primary"
+            role="button"
+            (click)="addToCart(i)"
+          >
             <i class="fa fa-cart-plus" aria-hidden="true"></i
           ></a>
         </td>

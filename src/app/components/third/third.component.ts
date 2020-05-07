@@ -18,4 +18,7 @@ export class ThirdComponent implements OnInit {
   getAllProduct() {
     return this.productService.getAllproduct();
   }
+  addToCart(id: number) {
+    this.cartService.add(id);
+  }
 }
