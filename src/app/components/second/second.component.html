@@ -90,11 +90,14 @@
                         "
                         class="alert alert-danger"
                       >
+                        <div *ngIf="quantity.errors.required">
+                          Quantity is required
+                        </div>
                         <div *ngIf="quantity.errors.min">
-                          Quantity is required.
+                          Quantity is incorrect (1-50)!!
                         </div>
                         <div *ngIf="quantity.errors.max">
-                          Quantity is required.
+                          Quantity is incorrect (1-50)!!
                         </div>
                       </div>
                     </div>
@@ -117,6 +120,9 @@
                         *ngIf="price.invalid && (price.dirty || price.touched)"
                         class="alert alert-danger"
                       >
+                        <div *ngIf="price.errors.required">
+                          price is required
+                        </div>
                         <div *ngIf="price.errors.min">
                           price is required.
                         </div>
@@ -130,7 +136,13 @@
               </div>
               <div class="row">
                 <div class="col-md-2">
-                  <!-- <button type="button" class="btn btn-primary" (click)="addProduct()">Add</button> -->
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    (click)="addProduct()"
+                  >
+                    Add
+                  </button>
                 </div>
                 <div class="col-md-2">
                   <button type="reset" class="btn btn-danger">Reset</button>
@@ -147,7 +159,7 @@
           </div>
           <div class="card-body">
             Form Value: {{ productForm.value | json }} <br /><br />
-            Form Status: {{OK()}}
+            Form Status: {{ OK() }}
           </div>
         </div>
       </div>

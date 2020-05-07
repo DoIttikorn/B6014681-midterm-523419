@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup, FormArray, Validators } from "@angular/forms";
+import { ProductService } from "../../services/product.service";
 
 @Component({
   selector: "app-second",
@@ -26,7 +27,7 @@ export class SecondComponent implements OnInit {
 
   productType: string[] = ["CPU", "RAM", "HDD", "Mainboard"];
 
-  constructor() {}
+  constructor(private productService: ProductService) {}
 
   ngOnInit(): void {}
 
@@ -40,6 +41,6 @@ export class SecondComponent implements OnInit {
     return this.productForm.status;
   }
   addProduct() {
-    
+    this.productService.getpush(this.productForm);
   }
 }
